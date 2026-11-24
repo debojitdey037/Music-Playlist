@@ -5,6 +5,7 @@
 - **Roll Number:** 2502201530026
 - **Assigned Problem Statement:** P6 — Music Playlist
 - **GitHub Repository:** https://github.com/debojitdey037/Music-Playlist
+- **Live Vercel Deployment:** https://music-playlist-one-nu.vercel.app/
 
 ---
 
