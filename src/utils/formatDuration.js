@@ -1,8 +1,12 @@
 function formatDuration(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = seconds % 60;
-  const paddedSeconds = remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds;
-  return minutes + ":" + paddedSeconds;
+  var minutes = Math.floor(seconds / 60);
+  var remainingSeconds = seconds % 60;
+  
+  if (remainingSeconds < 10) {
+    remainingSeconds = "0" + remainingSeconds;
+  }
+  
+  return minutes + ":" + remainingSeconds;
 }
 
 export default formatDuration;

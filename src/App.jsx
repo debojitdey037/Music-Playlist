@@ -14,22 +14,34 @@ function App() {
   function toggleSongInPlaylist(id) {
     const updatedSongs = songList.map((song) => {
       if (song.id === id) {
-        return { ...song, isInPlaylist: !song.isInPlaylist };
+        return {
+          id: song.id,
+          title: song.title,
+          artist: song.artist,
+          album: song.album,
+          genre: song.genre,
+          year: song.year,
+          duration: song.duration,
+          streams: song.streams,
+          isInPlaylist: !song.isInPlaylist
+        };
+      } else {
+        return song;
       }
-      return song;
     });
 
     setSongList(updatedSongs);
   }
 
-  const playlistCount = songList.filter((song) => song.isInPlaylist === true).length;
+  const playlistSongs = songList.filter((song) => song.isInPlaylist === true);
+  const playlistCount = playlistSongs.length;
 
   return (
     <BrowserRouter>
-      <div className="app-container">
+      <div>
         <Navbar playlistCount={playlistCount} />
 
-        <main className="main-content">
+        <div>
           <Routes>
             <Route path="/" element={<Home songList={songList} />} />
             <Route
@@ -60,7 +72,7 @@ function App() {
               }
             />
           </Routes>
-        </main>
+        </div>
       </div>
     </BrowserRouter>
   );

@@ -2,18 +2,21 @@ import { Link } from "react-router";
 
 function Navbar({ playlistCount }) {
   return (
-    <nav className="navbar">
-      <div className="navbar-logo">
+    <nav>
+      <div>
         <Link to="/">Music Playlist</Link>
       </div>
 
-      <div className="navbar-links">
-        <Link to="/" className="nav-link">Home</Link>
-        <Link to="/songs" className="nav-link">Songs</Link>
-        <Link to="/playlist" className="nav-link playlist-link">
-          Playlist <span className="playlist-badge">({playlistCount})</span>
+      <div>
+        <Link to="/">Home</Link>
+        {" | "}
+        <Link to="/songs">Songs</Link>
+        {" | "}
+        <Link to="/playlist">
+          Playlist ({playlistCount})
         </Link>
       </div>
+      <hr />
     </nav>
   );
 }

@@ -10,29 +10,28 @@ function Playlist({ songList, toggleSongInPlaylist }) {
   }
 
   return (
-    <div className="page-container playlist-page">
-      <div className="page-header">
-        <h2>My Playlist</h2>
-        {playlistSongs.length > 0 && (
-          <p className="total-duration">
-            <strong>Total Duration:</strong> {formatDuration(totalSeconds)}
-          </p>
-        )}
-      </div>
+    <div>
+      <h2>My Playlist</h2>
+
+      {playlistSongs.length > 0 && (
+        <p>
+          <b>Total Duration:</b> {formatDuration(totalSeconds)}
+        </p>
+      )}
 
       {playlistSongs.length === 0 ? (
-        <div className="empty-playlist">
-          <p className="empty-message">Your playlist is empty</p>
-        </div>
+        <p>Your playlist is empty</p>
       ) : (
-        <div className="song-grid">
-          {playlistSongs.map((song) => (
-            <SongCard
-              key={song.id}
-              song={song}
-              toggleSongInPlaylist={toggleSongInPlaylist}
-            />
-          ))}
+        <div>
+          {playlistSongs.map((song) => {
+            return (
+              <SongCard
+                key={song.id}
+                song={song}
+                toggleSongInPlaylist={toggleSongInPlaylist}
+              />
+            );
+          })}
         </div>
       )}
     </div>
